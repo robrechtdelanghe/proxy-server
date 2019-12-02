@@ -1,0 +1,22 @@
+{
+  "name": "proxy-server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run proxy-server",
+    "proxy-server": "SET PORT=3000&& SET DEBUG=proxy-server:* && SET BASE_URL=http://localhost:3002&& node src/server/proxy-server",
+    "proxy-executor": "SET DEBUG=proxy-executor:*&& SET PROXY_HOST=http://localhost:3000&& node src/executor/proxy-executor",
+    "proxy-client": "SET PORT=3001&& SET DEBUG=proxy-client:*&& SET PROXY_HOST=http://localhost:3000&& SET NEW_HOST=http://localhost:3002&& node src/client/proxy-client",
+    "dummy-api": "SET PORT=3002&& SET DEBUG=dummy-api&& node src/dummy-api/dummy-api"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "^4.16.4",
+    "http-proxy": "^1.18.0",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.3"
+  }
+}
